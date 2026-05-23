@@ -419,6 +419,80 @@
     background: rgba(168,191,159,0.12);
   }
 
+  /* ── APPROACH INTERACTIONS ── */
+  .approach-tag-wrap {
+    position: relative;
+  }
+  /* Dropdown for Dynamic Therapy */
+  .approach-tag.has-dropdown {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    user-select: none;
+  }
+  .approach-tag.has-dropdown::after {
+    content: '▾';
+    font-size: 0.75rem;
+    transition: transform 0.3s;
+    display: inline-block;
+  }
+  .approach-tag.has-dropdown.open::after {
+    transform: rotate(180deg);
+  }
+  .dropdown-panel {
+    display: none;
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 0;
+    width: 340px;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(168,191,159,0.35);
+    border-radius: 4px;
+    padding: 1rem 1.2rem;
+    color: rgba(255,255,255,0.82);
+    font-size: 0.82rem;
+    line-height: 1.8;
+    font-weight: 300;
+    z-index: 50;
+    backdrop-filter: blur(8px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+  }
+  .dropdown-panel.open {
+    display: block;
+    animation: fadeDown 0.25s ease;
+  }
+  @keyframes fadeDown {
+    from { opacity: 0; transform: translateY(-6px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  /* Tooltip for Trauma-Informed Care */
+  .approach-tag.has-tooltip {
+    cursor: default;
+  }
+  .tooltip-panel {
+    display: none;
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 0;
+    width: 340px;
+    background: var(--forest-dark);
+    border: 1px solid rgba(168,191,159,0.35);
+    border-radius: 4px;
+    padding: 1rem 1.2rem;
+    color: rgba(255,255,255,0.82);
+    font-size: 0.82rem;
+    line-height: 1.8;
+    font-weight: 300;
+    z-index: 50;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+    pointer-events: none;
+  }
+  .approach-tag-wrap:hover .tooltip-panel {
+    display: block;
+    animation: fadeDown 0.2s ease;
+  }
+
   /* ── PAYMENT ── */
   #payment { background: var(--sage-mist); }
   .payment-grid {
@@ -812,14 +886,14 @@
         <p>Heal from painful past experiences through evidence-based trauma-informed care in a safe, paced, and compassionate therapeutic space.</p>
       </div>
       <div class="service-card">
-        <div class="service-icon">🦋</div>
-        <h3>Life Transitions</h3>
-        <p>Whether navigating career changes, relationship shifts, or major milestones, therapy can help you find solid footing and move forward with clarity.</p>
-      </div>
-      <div class="service-card">
         <div class="service-icon">🕯️</div>
         <h3>Grief & Loss</h3>
         <p>Grief takes many forms. I offer a compassionate, unhurried space to process loss and honor what matters most to you.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🦋</div>
+        <h3>Life Transitions</h3>
+        <p>Whether navigating career changes, relationship shifts, or major milestones, therapy can help you find solid footing and move forward with clarity.</p>
       </div>
       <div class="service-card">
         <div class="service-icon">🌿</div>
@@ -831,11 +905,25 @@
     <div class="approach-strip">
       <h3>My Therapeutic <em style="font-style:italic;color:var(--sage-light)">Approach</em></h3>
       <div class="approach-tags">
-        <div class="approach-tag">Dynamic Therapy</div>
+        <!-- Dynamic Therapy: click to expand -->
+        <div class="approach-tag-wrap">
+          <div class="approach-tag has-dropdown" onclick="toggleDropdown(this)">Dynamic Therapy</div>
+          <div class="dropdown-panel">
+            <strong style="color:var(--sage-light);display:block;margin-bottom:0.5rem;">Dynamic Therapy</strong>
+            is an insight-rich approach that explores how your past experiences, early relationships, and unseen emotional patterns shape your present-day life. Often, the ways we protect ourselves or react to stress are rooted in old survival dynamics that no longer serve us. In a collaborative, supportive space, we will look beneath the surface of your immediate symptoms to uncover the root causes of recurring relationship cycles, behaviors, or emotional blocks. By bringing these unconscious patterns into conscious awareness, you gain the clarity needed to break free from the past and make intentional, lasting choices for your future.
+          </div>
+        </div>
         <div class="approach-tag">Cognitive Behavioral Therapy (CBT)</div>
         <div class="approach-tag">Mindfulness-Based Stress Reduction (MBSR)</div>
         <div class="approach-tag">Integrated Approach</div>
-        <div class="approach-tag">Trauma-Informed Care</div>
+        <!-- Trauma-Informed Care: hover tooltip -->
+        <div class="approach-tag-wrap">
+          <div class="approach-tag has-tooltip">Trauma-Informed Care</div>
+          <div class="tooltip-panel">
+            <strong style="color:var(--sage-light);display:block;margin-bottom:0.5rem;">Trauma-Informed Care</strong>
+            Operating through a trauma-informed lens means I understand that your past experiences profoundly shape how you view yourself, your relationships, and the world today. In our work together, we move away from labeling symptoms as personal flaws and instead focus on understanding how your history has shaped your present. This approach prioritizes your physical and emotional safety, autonomy, and collaboration above all else. You will never be rushed or pressured to share more than you are ready for. Instead, we work at the pace of your nervous system, honoring the survival strategies that got you here while safely building new pathways toward lasting healing and independence.
+          </div>
+        </div>
         <div class="approach-tag">Person-Centered</div>
       </div>
     </div>
@@ -1021,6 +1109,30 @@
     toast.classList.add('show');
     setTimeout(() => toast.classList.remove('show'), 4000);
   }
+
+  // Toggle dropdown for Dynamic Therapy
+  function toggleDropdown(el) {
+    const panel = el.nextElementSibling;
+    const isOpen = panel.classList.contains('open');
+    // Close all open dropdowns first
+    document.querySelectorAll('.dropdown-panel.open').forEach(p => {
+      p.classList.remove('open');
+      p.previousElementSibling.classList.remove('open');
+    });
+    if (!isOpen) {
+      panel.classList.add('open');
+      el.classList.add('open');
+    }
+  }
+  // Close dropdown when clicking outside
+  document.addEventListener('click', function(e) {
+    if (!e.target.closest('.approach-tag-wrap')) {
+      document.querySelectorAll('.dropdown-panel.open').forEach(p => {
+        p.classList.remove('open');
+        p.previousElementSibling.classList.remove('open');
+      });
+    }
+  });
 
   // Intersection observer for fade-in
   const observer = new IntersectionObserver((entries) => {
