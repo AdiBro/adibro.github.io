@@ -468,7 +468,24 @@
   }
   /* Tooltip for Trauma-Informed Care */
   .approach-tag.has-tooltip {
-    cursor: default;
+    cursor: help;
+    border-bottom: 1px dotted rgba(168,191,159,0.7);
+  }
+  .approach-tag.has-tooltip .info-icon {
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    background: rgba(168,191,159,0.3);
+    border: 1px solid rgba(168,191,159,0.5);
+    border-radius: 50%;
+    font-size: 0.6rem;
+    line-height: 14px;
+    text-align: center;
+    margin-left: 5px;
+    color: var(--sage-light);
+    font-style: normal;
+    vertical-align: middle;
+    font-family: serif;
   }
   .tooltip-panel {
     display: none;
@@ -905,10 +922,10 @@
     <div class="approach-strip">
       <h3>My Therapeutic <em style="font-style:italic;color:var(--sage-light)">Approach</em></h3>
       <div class="approach-tags">
-        <!-- Dynamic Therapy: click to expand -->
+        <!-- Dynamic Therapy: hover tooltip -->
         <div class="approach-tag-wrap">
-          <div class="approach-tag has-dropdown" onclick="toggleDropdown(this)">Dynamic Therapy</div>
-          <div class="dropdown-panel">
+          <div class="approach-tag has-tooltip">Dynamic Therapy <span class="info-icon">i</span></div>
+          <div class="tooltip-panel">
             <strong style="color:var(--sage-light);display:block;margin-bottom:0.5rem;">Dynamic Therapy</strong>
             is an insight-rich approach that explores how your past experiences, early relationships, and unseen emotional patterns shape your present-day life. Often, the ways we protect ourselves or react to stress are rooted in old survival dynamics that no longer serve us. In a collaborative, supportive space, we will look beneath the surface of your immediate symptoms to uncover the root causes of recurring relationship cycles, behaviors, or emotional blocks. By bringing these unconscious patterns into conscious awareness, you gain the clarity needed to break free from the past and make intentional, lasting choices for your future.
           </div>
@@ -918,7 +935,7 @@
         <div class="approach-tag">Integrated Approach</div>
         <!-- Trauma-Informed Care: hover tooltip -->
         <div class="approach-tag-wrap">
-          <div class="approach-tag has-tooltip">Trauma-Informed Care</div>
+          <div class="approach-tag has-tooltip">Trauma-Informed Care <span class="info-icon">i</span></div>
           <div class="tooltip-panel">
             <strong style="color:var(--sage-light);display:block;margin-bottom:0.5rem;">Trauma-Informed Care</strong>
             Operating through a trauma-informed lens means I understand that your past experiences profoundly shape how you view yourself, your relationships, and the world today. In our work together, we move away from labeling symptoms as personal flaws and instead focus on understanding how your history has shaped your present. This approach prioritizes your physical and emotional safety, autonomy, and collaboration above all else. You will never be rushed or pressured to share more than you are ready for. Instead, we work at the pace of your nervous system, honoring the survival strategies that got you here while safely building new pathways toward lasting healing and independence.
@@ -926,6 +943,9 @@
         </div>
         <div class="approach-tag">Person-Centered</div>
       </div>
+      <p style="margin-top:1rem;font-size:0.75rem;color:rgba(168,191,159,0.6);letter-spacing:0.08em;font-style:italic;">
+        ✦ Hover over tagged items marked with <span style="display:inline-block;width:13px;height:13px;background:rgba(168,191,159,0.3);border:1px solid rgba(168,191,159,0.5);border-radius:50%;font-size:0.55rem;line-height:13px;text-align:center;font-style:normal;font-family:serif;vertical-align:middle;">i</span> to learn more
+      </p>
     </div>
   </div>
 </section>
