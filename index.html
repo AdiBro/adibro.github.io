@@ -401,27 +401,39 @@
     line-height: 1.3;
   }
   .approach-tags {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
     gap: 1rem;
+  }
+  .approach-tag-wrap {
+    position: relative;
+    display: flex;
+    align-items: stretch;
   }
   .approach-tag {
     border: 1px solid rgba(168,191,159,0.4);
     color: var(--sage-light);
-    padding: 0.6rem 1.4rem;
+    padding: 1rem;
     font-size: 0.83rem;
     letter-spacing: 0.08em;
     border-radius: 2px;
     transition: background 0.3s;
     cursor: default;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    min-height: 80px;
+    line-height: 1.4;
   }
   .approach-tag:hover {
     background: rgba(168,191,159,0.12);
   }
 
   /* ── APPROACH INTERACTIONS ── */
-  .approach-tag-wrap {
+  .approach-tag-wrap-outer {
     position: relative;
+    display: contents;
   }
   /* Dropdown for Dynamic Therapy */
   .approach-tag.has-dropdown {
@@ -922,49 +934,49 @@
     <div class="approach-strip">
       <h3>My Therapeutic <em style="font-style:italic;color:var(--sage-light)">Approach</em></h3>
       <div class="approach-tags">
-        <div class="approach-tag-wrap">
+        <div class="approach-tag-wrap-outer"><div class="approach-tag-wrap">
           <div class="approach-tag has-tooltip">Trauma-Informed Care <span class="info-icon">i</span></div>
           <div class="tooltip-panel">
             <strong style="color:var(--sage-light);display:block;margin-bottom:0.5rem;">Trauma-Informed Care</strong>
             Operating through a trauma-informed lens means I understand that your past experiences profoundly shape how you view yourself, your relationships, and the world today. In our work together, we move away from labeling symptoms as personal flaws and instead focus on understanding how your history has shaped your present. This approach prioritizes your physical and emotional safety, autonomy, and collaboration above all else. You will never be rushed or pressured to share more than you are ready for. Instead, we work at the pace of your nervous system, honoring the survival strategies that got you here while safely building new pathways toward lasting healing and independence.
           </div>
-        </div>
-        <div class="approach-tag-wrap">
+        </div></div>
+        <div class="approach-tag-wrap-outer"><div class="approach-tag-wrap">
           <div class="approach-tag has-tooltip">Eye Movement Desensitization and Reprocessing (EMDR) <span class="info-icon">i</span></div>
           <div class="tooltip-panel">
             <strong style="color:var(--sage-light);display:block;margin-bottom:0.5rem;">Eye Movement Desensitization and Reprocessing (EMDR)</strong>
             Eye Movement Desensitization and Reprocessing (EMDR) is a specialized, evidence-based therapy designed to help your brain heal from traumatic memories, anxiety, and distressing life experiences. Unlike traditional talk therapy, EMDR uses gentle, rhythmic eye movements or taps (bilateral stimulation) to help your brain reprocess stuck, painful memories. By unlocking and rewiring these experiences, the emotional sting fades, allowing you to find relief, change negative self-beliefs, and move forward without feeling constantly triggered by the past.
           </div>
-        </div>
-        <div class="approach-tag-wrap">
+        </div></div>
+        <div class="approach-tag-wrap-outer"><div class="approach-tag-wrap">
           <div class="approach-tag has-tooltip">Mindfulness-Based Stress Reduction (MBSR) <span class="info-icon">i</span></div>
           <div class="tooltip-panel">
             <strong style="color:var(--sage-light);display:block;margin-bottom:0.5rem;">Mindfulness-Based Stress Reduction (MBSR)</strong>
             MBSR is a gentle, evidence-based approach that helps you step out of "automatic pilot" and reconnect with the present moment. By combining meditation, breathwork, and gentle somatic (body-based) awareness, MBSR teaches you how to observe overwhelming thoughts and physical stress without judgment. Rather than fighting or numbing your anxiety, you will develop practical, everyday tools to ground your nervous system, build emotional resilience, and respond to life's challenges with greater clarity and calm.
           </div>
-        </div>
-        <div class="approach-tag-wrap">
+        </div></div>
+        <div class="approach-tag-wrap-outer"><div class="approach-tag-wrap">
           <div class="approach-tag has-tooltip">Person-Centered and Strength-Based <span class="info-icon">i</span></div>
           <div class="tooltip-panel">
             <strong style="color:var(--sage-light);display:block;margin-bottom:0.5rem;">Person-Centered and Strength-Based</strong>
             A collaborative approach built on the absolute belief that you are the expert of your own life story. Instead of focusing on the negative, we highlight your innate resilience, internal resources, and unique strengths. My role is to help empower you to trust your own wisdom, cultivate self-acceptance, and actively direct your own path toward healing.
           </div>
-        </div>
-        <div class="approach-tag-wrap">
+        </div></div>
+        <div class="approach-tag-wrap-outer"><div class="approach-tag-wrap">
           <div class="approach-tag has-tooltip">Psychodynamic Therapy <span class="info-icon">i</span></div>
           <div class="tooltip-panel">
             <strong style="color:var(--sage-light);display:block;margin-bottom:0.5rem;">Psychodynamic Therapy</strong>
             An insight-rich approach that explores how your past experiences, early relationships, and unseen emotional patterns shape your present-day life. Often, the ways we protect ourselves or react to stress are rooted in old survival dynamics that no longer serve us. Together we will look beneath the surface of your immediate symptoms to uncover the root causes of recurring relationship cycles, behaviors, or emotional blocks. By bringing these unconscious patterns into conscious awareness, you gain the clarity needed to break free from the past and make intentional, lasting choices for your future.
           </div>
-        </div>
-        <div class="approach-tag-wrap">
+        </div></div>
+        <div class="approach-tag-wrap-outer"><div class="approach-tag-wrap">
           <div class="approach-tag has-tooltip">Cognitive Behavioral Therapy (CBT) <span class="info-icon">i</span></div>
           <div class="tooltip-panel">
             <strong style="color:var(--sage-light);display:block;margin-bottom:0.5rem;">Cognitive Behavioral Therapy (CBT)</strong>
             Cognitive Behavioral Therapy (CBT) is a practical, goal-oriented talk therapy focused on how your thoughts, feelings, and actions connect. When you get stuck in negative thought loops, it directly impacts how you feel and behave. In our present-focused sessions, we will work as a team to identify these unhelpful "thought traps" and build a concrete toolkit of practical skills you can use outside of therapy to manage anxiety, stress, or low mood.
           </div>
-        </div>
-        <div class="approach-tag-wrap">
+        </div></div>
+        <div class="approach-tag-wrap-outer"><div class="approach-tag-wrap">
           <div class="approach-tag has-tooltip">Integrative Therapy <span class="info-icon">i</span></div>
           <div class="tooltip-panel">
             <strong style="color:var(--sage-light);display:block;margin-bottom:0.5rem;">Integrative Therapy</strong>
