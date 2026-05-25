@@ -523,7 +523,15 @@
     box-shadow: 0 8px 24px rgba(0,0,0,0.4);
     pointer-events: none;
   }
-  .approach-tag-wrap:hover .tooltip-panel {
+  /* Desktop: hover shows tooltip */
+  @media (hover: hover) {
+    .approach-tag-wrap:hover .tooltip-panel:not(.js-open) {
+      display: block;
+      animation: fadeDown 0.2s ease;
+    }
+  }
+  /* JS-triggered open (works on all devices) */
+  .tooltip-panel.js-open {
     display: block;
     animation: fadeDown 0.2s ease;
   }
@@ -1058,22 +1066,22 @@
       <div class="approach-tags">
         <div class="approach-row">
           <div class="approach-tag-wrap">
-          <div class="approach-tag has-tooltip">Trauma-Informed Care <span class="info-icon">i</span></div>
-          <div class="tooltip-panel">
+          <div class="approach-tag has-tooltip" onclick="toggleTooltip(event, this)">Trauma-Informed Care <span class="info-icon">i</span></div>
+          <div class="tooltip-panel" onclick="closeAllTooltips(event)">
             <strong style="color:var(--sage-light);display:block;margin-bottom:0.5rem;">Trauma-Informed Care</strong>
             Operating through a trauma-informed lens means I understand that your past experiences profoundly shape how you view yourself, your relationships, and the world today. In our work together, we move away from labeling symptoms as personal flaws and instead focus on understanding how your history has shaped your present. This approach prioritizes your physical and emotional safety, autonomy, and collaboration above all else. You will never be rushed or pressured to share more than you are ready for. Instead, we work at the pace of your nervous system, honoring the survival strategies that got you here while safely building new pathways toward lasting healing and independence.
           </div>
         </div>
           <div class="approach-tag-wrap">
-          <div class="approach-tag has-tooltip">Eye Movement Desensitization and Reprocessing (EMDR) <span class="info-icon">i</span></div>
-          <div class="tooltip-panel">
+          <div class="approach-tag has-tooltip" onclick="toggleTooltip(event, this)">Eye Movement Desensitization and Reprocessing (EMDR) <span class="info-icon">i</span></div>
+          <div class="tooltip-panel" onclick="closeAllTooltips(event)">
             <strong style="color:var(--sage-light);display:block;margin-bottom:0.5rem;">Eye Movement Desensitization and Reprocessing (EMDR)</strong>
             Eye Movement Desensitization and Reprocessing (EMDR) is a specialized, evidence-based therapy designed to help your brain heal from traumatic memories, anxiety, and distressing life experiences. Unlike traditional talk therapy, EMDR uses gentle, rhythmic eye movements or taps (bilateral stimulation) to help your brain reprocess stuck, painful memories. By unlocking and rewiring these experiences, the emotional sting fades, allowing you to find relief, change negative self-beliefs, and move forward without feeling constantly triggered by the past.
           </div>
         </div>
           <div class="approach-tag-wrap">
-          <div class="approach-tag has-tooltip">Mindfulness-Based Stress Reduction (MBSR) <span class="info-icon">i</span></div>
-          <div class="tooltip-panel">
+          <div class="approach-tag has-tooltip" onclick="toggleTooltip(event, this)">Mindfulness-Based Stress Reduction (MBSR) <span class="info-icon">i</span></div>
+          <div class="tooltip-panel" onclick="closeAllTooltips(event)">
             <strong style="color:var(--sage-light);display:block;margin-bottom:0.5rem;">Mindfulness-Based Stress Reduction (MBSR)</strong>
             MBSR is a gentle, evidence-based approach that helps you step out of "automatic pilot" and reconnect with the present moment. By combining meditation, breathwork, and gentle somatic (body-based) awareness, MBSR teaches you how to observe overwhelming thoughts and physical stress without judgment. Rather than fighting or numbing your anxiety, you will develop practical, everyday tools to ground your nervous system, build emotional resilience, and respond to life's challenges with greater clarity and calm.
           </div>
@@ -1081,29 +1089,29 @@
         </div>
         <div class="approach-row">
           <div class="approach-tag-wrap">
-          <div class="approach-tag has-tooltip">Person-Centered and Strength-Based <span class="info-icon">i</span></div>
-          <div class="tooltip-panel">
+          <div class="approach-tag has-tooltip" onclick="toggleTooltip(event, this)">Person-Centered and Strength-Based <span class="info-icon">i</span></div>
+          <div class="tooltip-panel" onclick="closeAllTooltips(event)">
             <strong style="color:var(--sage-light);display:block;margin-bottom:0.5rem;">Person-Centered and Strength-Based</strong>
             A collaborative approach built on the absolute belief that you are the expert of your own life story. Instead of focusing on the negative, we highlight your innate resilience, internal resources, and unique strengths. My role is to help empower you to trust your own wisdom, cultivate self-acceptance, and actively direct your own path toward healing.
           </div>
         </div>
           <div class="approach-tag-wrap">
-          <div class="approach-tag has-tooltip">Psychodynamic Therapy <span class="info-icon">i</span></div>
-          <div class="tooltip-panel">
+          <div class="approach-tag has-tooltip" onclick="toggleTooltip(event, this)">Psychodynamic Therapy <span class="info-icon">i</span></div>
+          <div class="tooltip-panel" onclick="closeAllTooltips(event)">
             <strong style="color:var(--sage-light);display:block;margin-bottom:0.5rem;">Psychodynamic Therapy</strong>
             An insight-rich approach that explores how your past experiences, early relationships, and unseen emotional patterns shape your present-day life. Often, the ways we protect ourselves or react to stress are rooted in old survival dynamics that no longer serve us. Together we will look beneath the surface of your immediate symptoms to uncover the root causes of recurring relationship cycles, behaviors, or emotional blocks. By bringing these unconscious patterns into conscious awareness, you gain the clarity needed to break free from the past and make intentional, lasting choices for your future.
           </div>
         </div>
           <div class="approach-tag-wrap">
-          <div class="approach-tag has-tooltip">Cognitive Behavioral Therapy (CBT) <span class="info-icon">i</span></div>
-          <div class="tooltip-panel">
+          <div class="approach-tag has-tooltip" onclick="toggleTooltip(event, this)">Cognitive Behavioral Therapy (CBT) <span class="info-icon">i</span></div>
+          <div class="tooltip-panel" onclick="closeAllTooltips(event)">
             <strong style="color:var(--sage-light);display:block;margin-bottom:0.5rem;">Cognitive Behavioral Therapy (CBT)</strong>
             Cognitive Behavioral Therapy (CBT) is a practical, goal-oriented talk therapy focused on how your thoughts, feelings, and actions connect. When you get stuck in negative thought loops, it directly impacts how you feel and behave. In our present-focused sessions, we will work as a team to identify these unhelpful "thought traps" and build a concrete toolkit of practical skills you can use outside of therapy to manage anxiety, stress, or low mood.
           </div>
         </div>
           <div class="approach-tag-wrap">
-          <div class="approach-tag has-tooltip">Integrative Therapy <span class="info-icon">i</span></div>
-          <div class="tooltip-panel">
+          <div class="approach-tag has-tooltip" onclick="toggleTooltip(event, this)">Integrative Therapy <span class="info-icon">i</span></div>
+          <div class="tooltip-panel" onclick="closeAllTooltips(event)">
             <strong style="color:var(--sage-light);display:block;margin-bottom:0.5rem;">Integrative Therapy</strong>
             Integrative therapy is a warm, flexible approach that blends tools from different therapeutic styles to fit your unique needs. Rather than forcing you into a single, rigid type of treatment, we work together to combine the best parts of various methods—like exploring your past, practicing present-day coping skills, or focusing on mindfulness. This allows us to look at the whole picture of who you are and tailor our sessions to whatever helps you feel most supported, heard, and empowered in your healing journey.
           </div>
@@ -1111,7 +1119,7 @@
         </div>
       </div>
       <p style="margin-top:1rem;font-size:0.75rem;color:rgba(168,191,159,0.6);letter-spacing:0.08em;font-style:italic;">
-        ✦ Hover over tagged items marked with <span style="display:inline-block;width:13px;height:13px;background:rgba(168,191,159,0.3);border:1px solid rgba(168,191,159,0.5);border-radius:50%;font-size:0.55rem;line-height:13px;text-align:center;font-style:normal;font-family:serif;vertical-align:middle;">i</span> to learn more
+        ✦ Tap or hover over tagged items marked with <span style="display:inline-block;width:13px;height:13px;background:rgba(168,191,159,0.3);border:1px solid rgba(168,191,159,0.5);border-radius:50%;font-size:0.55rem;line-height:13px;text-align:center;font-style:normal;font-family:serif;vertical-align:middle;">i</span> to learn more
       </p>
     </div>
   </div>
@@ -1300,6 +1308,27 @@
 <div class="toast" id="toast">✅ Message sent! I'll be in touch within 2 business days.</div>
 
 <script>
+  // Tooltip click handling (for mobile)
+  function toggleTooltip(e, el) {
+    e.stopPropagation();
+    const panel = el.nextElementSibling;
+    const isOpen = panel.classList.contains('js-open');
+    closeAllTooltips();
+    if (!isOpen) {
+      panel.classList.add('js-open');
+    }
+  }
+  function closeAllTooltips(e) {
+    if (e) e.stopPropagation();
+    document.querySelectorAll('.tooltip-panel.js-open').forEach(p => p.classList.remove('js-open'));
+  }
+  // Close tooltips when tapping anywhere else on page
+  document.addEventListener('click', function(e) {
+    if (!e.target.closest('.approach-tag-wrap')) {
+      closeAllTooltips();
+    }
+  });
+
   function toggleMenu() {
     document.getElementById('mobileMenu').classList.toggle('open');
   }
