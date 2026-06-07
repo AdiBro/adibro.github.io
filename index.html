@@ -543,6 +543,16 @@
   }
 
   /* ── PAYMENT ── */
+  .payment-inner-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+  .payment-inner-grid.top {
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--sage-pale);
+    margin-bottom: 2rem;
+  }
   #payment { background: var(--sage-mist); }
   .payment-grid {
     display: grid;
@@ -871,8 +881,9 @@
 
     /* Payment */
     .payment-grid { grid-template-columns: 1fr; gap: 1.5rem; }
-    .payment-box > div[style*="grid-template-columns"] { grid-template-columns: 1fr; }
-    .payment-box { padding: 1.5rem; }
+    .payment-box { padding: 1.2rem; box-sizing: border-box; }
+    .payment-inner-grid { grid-template-columns: 1fr !important; gap: 1.2rem; width: 100%; }
+    .payment-inner-grid.top { padding-bottom: 1.2rem; margin-bottom: 1.2rem; }
     .price-amount { font-size: 2.8rem; }
 
     /* Contact */
@@ -1144,10 +1155,10 @@
     <h2 class="section-title">Investment in <em>your wellbeing</em></h2>
     <div class="divider"></div>
 
-    <div class="payment-box" style="max-width:780px;margin:0 auto;">
+    <div class="payment-box" style="max-width:780px;margin:0 auto;width:100%;box-sizing:border-box;overflow:hidden;">
 
         <!-- Top: Fee + Insurance side by side -->
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:2rem;padding-bottom:2rem;border-bottom:1px solid var(--sage-pale);margin-bottom:2rem;">
+        <div class="payment-inner-grid top">
           <div>
             <h3 style="font-family:'Cormorant Garamond',serif;font-size:1.3rem;color:var(--forest-dark);font-weight:500;margin-bottom:0.8rem;">Session Fees</h3>
             <p style="color:var(--text-light);font-size:0.88rem;font-weight:300;line-height:1.7;margin-bottom:1rem;">Individual therapy sessions are 60 minutes. Payment is accepted via credit/debit card and HSA/FSA.</p>
@@ -1164,7 +1175,7 @@
         </div>
 
         <!-- Bottom: How it works + Questions -->
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:2rem;">
+        <div class="payment-inner-grid">
           <div style="background:var(--sage-mist);border-radius:2px;border-left:3px solid var(--sage);padding:1.2rem 1.4rem;">
             <p style="font-size:0.9rem;color:var(--forest-dark);font-weight:500;margin-bottom:0.5rem;">How Out-of-Network Works</p>
             <p style="font-size:0.83rem;color:var(--text-light);font-weight:300;line-height:1.8;">You pay the session fee at the time of service, and I provide a detailed <strong style="color:var(--text);">superbill</strong> (itemized receipt) that you can submit to your insurance company for potential reimbursement.</p>
